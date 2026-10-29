@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>שירות בצה"ל - העתיד שלך מתחיל כאן</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Rubik -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Rubik', 'sans-serif'],
+                    },
+                    colors: {
+                        idf: {
+                            olive: '#3B4836',
+                            oliveDark: '#2B3528',
+                            oliveLight: '#53654C',
+                            gold: '#D4AF37',
+                            goldHover: '#B59328',
+                            navy: '#0F172A',
+                            accent: '#2563EB',
+                            cardBg: '#1E293B'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Rubik', sans-serif;
+            background-color: #0B0F17;
+            color: #F3F4F6;
+        }
+        .glass-panel {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glass-panel-active {
+            background: rgba(59, 72, 54, 0.4);
+            border-color: #D4AF37;
+        }
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #FFF 30%, #D4AF37 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .olive-gradient {
+            background: linear-gradient(135deg, #2B3528 0%, #3B4836 100%);
+        }
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px -10px rgba(212, 175, 55, 0.15);
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0B0F17;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #3B4836;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #D4AF37;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-idf-gold selection:text-idf-navy">
+
+    <!-- Navigation Header -->
+    <header class="sticky top-0 z-50 glass-panel border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-idf-olive to-idf-gold flex items-center justify-center shadow-lg shadow-idf-olive/30">
+                    <i class="fa-solid me-0.5 fa-shield-halved text-lg text-white"></i>
+                </div>
+                <div>
+                    <span class="text-xl font-bold tracking-wide text-white">צה"ל <span class="text-idf-gold font-normal text-base">| מסלול השירות</span></span>
+                    <p class="text-xs text-slate-400 hidden sm:block">צבא הגנה לישראל - שירות, מנהיגות ועתיד</p>
+                </div>
+            </div>
+            
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
+                <a href="#about" class="text-slate-300 hover:text-idf-gold transition-colors">אודות צה"ל</a>
+                <a href="#calculator" class="text-slate-300 hover:text-idf-gold transition-colors">סייר פרופילים</a>
+                <a href="#roles" class="text-slate-300 hover:text-idf-gold transition-colors">מסלולי שירות</a>
+                <a href="#benefits" class="text-slate-300 hover:text-idf-gold transition-colors">ערך מוסף</a>
+                <a href="#grants" class="text-slate-300 hover:text-idf-gold transition-colors">הטבות שחרור</a>
+            </nav>
+
+            <a href="#calculator" class="px-5 py-2.5 rounded-xl bg-idf-gold hover:bg-idf-goldHover text-idf-navy font-semibold text-sm transition-all shadow-md shadow-idf-gold/20 flex items-center gap-2">
+                <i class="fa-solid fa-sliders"></i>
+                <span>בדוק פרופיל</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow">
+
+        <!-- Hero Section -->
+        <section id="about" class="relative py-20 lg:py-28 overflow-hidden">
+            <!-- Background Decorative Elements -->
+            <div class="absolute top-1/4 right-1/2 w-96 h-96 bg-idf-olive/20 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute bottom-10 left-10 w-80 h-80 bg-idf-gold/10 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="text-center max-w-3xl mx-auto space-y-6">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel border border-idf-gold/30 text-idf-gold text-sm font-medium mb-2">
+                        <i class="fa-solid fa-star text-xs"></i>
+                        <span>מגן על המדינה, גבולותיה ושלום תושביה</span>
+                    </div>
+                    
+                    <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight leading-tight">
+                        הדרך שלך לתרום, להתפתח ולהוביל <span class="gold-gradient-text block mt-2">בצבא הגנה לישראל</span>
+                    </h1>
+                    
+                    <p class="text-slate-300 text-lg leading-relaxed font-light">
+                        השירות בצה"ל הוא חובה על פי חוק בסיום 12 שנות לימוד, אך מעבר לרוח התרומה וההגנה על המדינה – זוהי מקפצה אדירה לחיים: פיתוח חוסן אישי, כישורי מנהיגות, רשת חברתית לכל החיים ורכישת מקצוע מבוקש.
+                    </p>
+
+                    <div class="pt-4 flex flex-wrap justify-center gap-4">
+                        <a href="#calculator" class="px-8 py-4 rounded-xl bg-gradient-to-r from-idf-oliveLight to-idf-olive hover:to-idf-oliveDark text-white font-semibold shadow-lg shadow-idf-olive/30 transition-all flex items-center gap-3">
+                            <span>גלה את המסלול המתאים לך</span>
+                            <i class="fa-solid fa-arrow-left"></i>
+                        </a>
+                        <a href="#benefits" class="px-8 py-4 rounded-xl glass-panel text-slate-200 hover:text-white hover:border-slate-600 font-semibold transition-all">
+                            למה כדאי לשרת?
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Stats Cards -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-16">
+                    <div class="glass-panel p-6 rounded-2xl text-center border-t-2 border-t-idf-gold/50">
+                        <div class="text-3xl font-bold text-white mb-1">8+</div>
+                        <div class="text-sm text-slate-400">דרגות פרופיל רפואי</div>
+                    </div>
+                    <div class="glass-panel p-6 rounded-2xl text-center border-t-2 border-t-idf-gold/50">
+                        <div class="text-3xl font-bold text-white mb-1">100%</div>
+                        <div class="text-sm text-slate-400">התאמה אישית של תפקיד</div>
+                    </div>
+                    <div class="glass-panel p-6 rounded-2xl text-center border-t-2 border-t-idf-gold/50">
+                        <div class="text-3xl font-bold text-white mb-1">₪22K</div>
+                        <div class="text-sm text-slate-400">מענק שחרור עד מרבי</div>
+                    </div>
+                    <div class="glass-panel p-6 rounded-2xl text-center border-t-2 border-t-idf-gold/50">
+                        <div class="text-3xl font-bold text-white mb-1">לכל החיים</div>
+                        <div class="text-sm text-slate-400">כלים ומיומנויות אזרחיות</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Profile Interactive Calculator Section -->
+        <section id="calculator" class="py-16 bg-slate-900/50 relative border-y border-slate-800">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-2xl mx-auto mb-12">
+                    <h2 class="text-3xl font-bold text-white mb-3">סייר פרופיל רפואי אינטראקטיבי</h2>
+                    <p class="text-slate-400">לחץ על הפרופיל הרפואי שלך כדי לגלות את משמעותו, אפשרויות השירות, היחידות והתפקידים הפתוחים בפניך.</p>
+                </div>
+
+                <!-- Profile Selector Buttons -->
+                <div class="flex flex-wrap justify-center gap-3 mb-10" id="profileSelector">
+                    <!-- Buttons JS generated -->
+                </div>
+
+                <!-- Profile Dynamic Detail Display -->
+                <div id="profileDetailCard" class="glass-panel rounded-3xl p-6 md:p-10 border border-idf-gold/30 transition-all duration-300">
+                    <!-- Dynamic Content Loaded via JS -->
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Categorized Roles Overview Section -->
+        <section id="roles" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="text-3xl font-bold text-white mb-3">מפת מסלולי השירות</h2>
+                <p class="text-slate-400">חלוקת התפקידים לפי דרגות הפרופיל והדרישות המבצעיות</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Combat Card -->
+                <div class="glass-panel rounded-2xl p-8 border-t-4 border-t-red-500 card-hover flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 rounded-2xl bg-red-500/10 border border-red-500/20 text-red-500 flex items-center justify-center text-2xl mb-6">
+                            <i class="fa-solid fa-crosshairs"></i>
+                        </div>
+                        <div class="inline-block px-3 py-1 bg-red-500/10 text-red-400 text-xs font-semibold rounded-full mb-3">פרופיל 72-97</div>
+                        <h3 class="text-2xl font-bold text-white mb-3">לוחמה וסיירות</h3>
+                        <p class="text-slate-300 text-sm mb-6 leading-relaxed">
+                            מיועד לפעילות מבצעית בחזית ובלחימה ישירה. בנים מחויבים, בנות מתנדבות. משרתים בשטח, בגבולות ובבסיסים סגורים.
+                        </p>
+                        
+                        <div class="space-y-3">
+                            <h4 class="text-xs font-semibold text-slate-400 uppercase tracking-wider">דוגמאות ליחידות:</h4>
+                            <ul class="space-y-2 text-sm text-slate-200">
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-red-400 text-xs"></i> חטיבות החי"ר (גולני, צנחנים וכו')</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-red-400 text-xs"></i> שריון, הנדסה קרבית ותותחנים</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-red-400 text-xs"></i> הגנה אווירית ולוחמות מג"ב</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-star text-idf-gold text-xs"></i> יחידות מיוחדות: סיירת מטכ"ל, טייס, חובלים, קומנדו</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Combat Support Card -->
+                <div class="glass-panel rounded-2xl p-8 border-t-4 border-t-amber-500 card-hover flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-amber-500 flex items-center justify-center text-2xl mb-6">
+                            <i class="fa-solid fa-wrench"></i>
+                        </div>
+                        <div class="inline-block px-3 py-1 bg-amber-500/10 text-amber-400 text-xs font-semibold rounded-full mb-3">פרופיל 64-72</div>
+                        <h3 class="text-2xl font-bold text-white mb-3">תומכי לחימה</h3>
+                        <p class="text-slate-300 text-sm mb-6 leading-relaxed">
+                            תפקידי שטח המשרתים ביחידות לוחמות ומספקים מעטפת קריטית להצלחת המשימה. משרתים בבסיסים סגורים בשטח, קרוב ללוחמים.
+                        </p>
+
+                        <div class="space-y-3">
+                            <h4 class="text-xs font-semibold text-slate-400 uppercase tracking-wider">תחומי עיסוק עיקריים:</h4>
+                            <ul class="space-y-2 text-sm text-slate-200">
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-amber-400 text-xs"></i> ניהול חמ"לים ומודיעין שטח</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-amber-400 text-xs"></i> ניהול ציוד ולוגיסטיקה מבצעית</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-amber-400 text-xs"></i> תיקונים מכניים ואחזקה</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-amber-400 text-xs"></i> מערך הרפואה הקדמי</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Rear Support Card -->
+                <div class="glass-panel rounded-2xl p-8 border-t-4 border-t-blue-500 card-hover flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 rounded-2xl bg-blue-500/10 border border-blue-500/20 text-blue-500 flex items-center justify-center text-2xl mb-6">
+                            <i class="fa-solid fa-laptop-code"></i>
+                        </div>
+                        <div class="inline-block px-3 py-1 bg-blue-500/10 text-blue-400 text-xs font-semibold rounded-full mb-3">פרופיל 45 ומטה</div>
+                        <h3 class="text-2xl font-bold text-white mb-3">תפקידי עורף</h3>
+                        <p class="text-slate-300 text-sm mb-6 leading-relaxed">
+                            משרתים בבסיסים עורפיים, מטה או מפקדות. מאפשר שירות בתנאי יומיות ומשלב תפקידים טכנולוגיים וניהוליים מתקדמים.
+                        </p>
+
+                        <div class="space-y-3">
+                            <h4 class="text-xs font-semibold text-slate-400 uppercase tracking-wider">תחומי עיסוק עיקריים:</h4>
+                            <ul class="space-y-2 text-sm text-slate-200">
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-blue-400 text-xs"></i> מחשוב, סייבר ותוכנה</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-blue-400 text-xs"></i> מודיעין עורפי ומחקר</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-blue-400 text-xs"></i> משאבי אנוש, שלישות ות"ש</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-blue-400 text-xs"></i> מנהלה, דוברות ורפואה עורפית</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Serve / Benefits Section -->
+        <section id="benefits" class="py-20 bg-slate-900/40 relative border-t border-slate-800">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span class="text-idf-gold text-sm font-semibold tracking-widest uppercase">ערך מוסף לחיים</span>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-white mt-2 mb-4">למה שירות בצה"ל נותן לך הרבה יותר?</h2>
+                    <p class="text-slate-400">השירות הצבאי אינו רק חובה אזרחית, אלא בית ספר מעשי לחיים שמקנה כלים שאין באף מקום אחר.</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    
+                    <!-- Feature 1 -->
+                    <div class="glass-panel p-8 rounded-2xl card-hover relative overflow-hidden">
+                        <div class="text-idf-gold text-3xl mb-4"><i class="fa-solid fa-brain"></i></div>
+                        <h3 class="text-xl font-bold text-white mb-2">כישורי חיים וחוסן</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed">
+                            פיתוח עצמאות, משמעת עצמית גבוהה, חוסן מנטלי, יכולת עבודה בצוות ויכולת תקשורת והסתדרות עם אנשים מגוונים ומורכבים.
+                        </p>
+                    </div>
+
+                    <!-- Feature 2 -->
+                    <div class="glass-panel p-8 rounded-2xl card-hover relative overflow-hidden">
+                        <div class="text-idf-gold text-3xl mb-4"><i class="fa-solid fa-users"></i></div>
+                        <h3 class="text-xl font-bold text-white mb-2">רשת חברתית לחיים</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed">
+                            החברים והחברות שמכירים במהלך השירות המשותף והאתגרים, הופכים ברבים מהמקרים לחברי אמת שמלווים אותך לכל החיים.
+                        </p>
+                    </div>
+
+                    <!-- Feature 3 -->
+                    <div class="glass-panel p-8 rounded-2xl card-hover relative overflow-hidden">
+                        <div class="text-idf-gold text-3xl mb-4"><i class="fa-solid fa-briefcase"></i></div>
+                        <h3 class="text-xl font-bold text-white mb-2">רכישת מקצוע מבוקש</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed">
+                            הכשרות מקצועיות יקרות ערך: חובשים, פראמדיקים, נהגי משאיות ואוטובוסים, מכונאים, מפעילי כטב"ם וקציני לוגיסטיקה.
+                        </p>
+                    </div>
+
+                    <!-- Feature 4 -->
+                    <div class="glass-panel p-8 rounded-2xl card-hover relative overflow-hidden">
+                        <div class="text-idf-gold text-3xl mb-4"><i class="fa-solid fa-chess-king"></i></div>
+                        <h3 class="text-xl font-bold text-white mb-2">פיקוד ומנהיגות</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed">
+                            תפקידי פיקוד וקצונה מפתחים כישורי מנהיגות, ניהול צוותים תחת אש, עמידה בלחצים וקבלת החלטות – יתרון אדיר בשוק העבודה.
+                        </p>
+                    </div>
+
+                    <!-- Feature 5 -->
+                    <div class="glass-panel p-8 rounded-2xl card-hover relative overflow-hidden md:col-span-2 lg:col-span-2 border border-idf-gold/30">
+                        <div class="text-idf-gold text-3xl mb-4"><i class="fa-solid fa-microchip"></i></div>
+                        <h3 class="text-xl font-bold text-white mb-2">מקפצה אדירה להייטק ולתעשייה</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed">
+                            שירות ביחידות טכנולוגיות עילית (כמו 8200, אופק, תקשוב) או בתפקידי סייבר, מחשוב ותוכנה מקנה ניסיון מעשי שווה ערך לשנים של עבודה באזרחות ותארים אקדמיים מתקדמים.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Grants and Post-Service Benefits Section -->
+        <section id="grants" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-idf-gold text-sm font-semibold tracking-widest uppercase">הגיעה עת השחרור</span>
+                <h2 class="text-3xl font-bold text-white mt-1 mb-3">מענקים והטבות לאחר השירות</h2>
+                <p class="text-slate-400">צה"ל מתגמל את חייליו גם ביום שאחרי השחרור עם גב כלכלי משמעותי</p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Grant 1 -->
+                <div class="glass-panel p-6 rounded-2xl border-b-4 border-b-idf-gold flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-idf-gold/10 text-idf-gold flex items-center justify-center text-xl mb-4">
+                            <i class="fa-solid fa-hand-holding-dollar"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">מענק שחרור</h3>
+                        <div class="text-2xl font-extrabold text-idf-gold mb-3">₪15,000 - ₪22,000</div>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            סכום כספי הנכנס ישירות לחשבון הבנק עם השחרור, בהתאם לאופי השירות ולמשכו.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Grant 2 -->
+                <div class="glass-panel p-6 rounded-2xl border-b-4 border-b-idf-gold flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-idf-gold/10 text-idf-gold flex items-center justify-center text-xl mb-4">
+                            <i class="fa-solid fa-piggy-bank"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">פיקדון אישי</h3>
+                        <div class="text-lg font-bold text-slate-200 mb-3">סכום משמעותי שמור</div>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            מיועד לשימושים מוגדרים: קניית דירה, חתונה, לימודים אקדמיים/מקצועיים, הקמת עסק ועוד.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Grant 3 -->
+                <div class="glass-panel p-6 rounded-2xl border-b-4 border-b-idf-gold flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-idf-gold/10 text-idf-gold flex items-center justify-center text-xl mb-4">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">מימון תואר</h3>
+                        <div class="text-lg font-bold text-slate-200 mb-3">מלא / משמעותי</div>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            מימון לימודים אקדמיים או במכללות ללוחמים ומשוחררים זכאים לפי תוכניות השחרור.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Grant 4 -->
+                <div class="glass-panel p-6 rounded-2xl border-b-4 border-b-idf-gold flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-idf-gold/10 text-idf-gold flex items-center justify-center text-xl mb-4">
+                            <i class="fa-solid fa-percent"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">הנחה במס הכנסה</h3>
+                        <div class="text-lg font-bold text-slate-200 mb-3">נקודות זיכוי</div>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            הטבת מס משמעותית בשנים הראשונות לאחר השחרור המגדלת את השכר נטו באזרחות.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="glass-panel border-t border-slate-800 py-8 text-center text-sm text-slate-400">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-2">
+                <i class="fa-solid fa-shield-halved text-idf-gold"></i>
+                <span class="text-white font-medium">צבא הגנה לישראל - מנהל הגיוס</span>
+            </div>
+            <p class="text-xs text-slate-400">כל הזכויות שמורות © הדף מוצג כמידע מסכם ומעורר השראה למלש"בים</p>
+        </div>
+    </footer>
+
+    <!-- Interactive JavaScript Logic -->
+    <script>
+        // Data structure based on the PDF Document
+        const profilesData = {
+            97: {
+                profile: "97",
+                title: "כשירות רפואית גבוהה ביותר",
+                category: "לוחמה וסיירות",
+                badgeClass: "bg-red-500/20 text-red-400 border-red-500/30",
+                description: "הפרופיל הגבוה ביותר בצה\"ל. בנים מיועדים לשירות קרבי, בנות יכולות להתנדב למגוון תפקידי לחימה.",
+                placements: "חטיבות החי\"ר (גולני, צנחנים, גבעתי, נח\"ל, כפיר), שריון, הנדסה קרבית, תותחנים, הגנה אווירית, לוחמות מג\"ב.",
+                specialUnits: "סיירות החי\"ר, קומנדו, קורס טיס, חובלים, סיירת מטכ\"ל, שלדג, שייטת 13.",
+                baseType: "שטח, גבולות ובסיסים סגורים"
+            },
+            82: {
+                profile: "82",
+                title: "בעיה רפואית קלה",
+                category: "לוחמה וסיירות",
+                badgeClass: "bg-red-500/20 text-red-400 border-red-500/30",
+                description: "כשירות לחימה מלאה ברוב יחידות השדה, למעט יחידות הדורשות סעיפים פוסלים ספציפיים.",
+                placements: "חטיבות החי\"ר, שריון, הנדסה, תותחנים, הגנה אווירית, מג\"ב ורוב הסיירות.",
+                specialUnits: "פתוח לחלק מהסיירות והיחידות המיוחדות בהתאם לסעיף הרפואי.",
+                baseType: "שטח ובסיסים סגורים"
+            },
+            72: {
+                profile: "72",
+                title: "בעיה רפואית בינונית",
+                category: "לוחמה מתונה / תומכי לחימה",
+                badgeClass: "bg-amber-500/20 text-amber-400 border-amber-500/30",
+                description: "בעיות כגון אסתמה קלה, בעיות גב/ברכיים קלות או מספר משקפיים גבוה. פוסל חי\"ר וסיירות אך מאפשר לחימה במערכים מסוימים.",
+                placements: "חיל השריון, חיל התותחנים, הגנה אווירית, איסוף קרבי, מערך הגנת הגבולות.",
+                specialUnits: "תפקידי תמיכת לחימה מתקדמים במפקדות שטח.",
+                baseType: "בסיסים סגורים בשטח"
+            },
+            64: {
+                profile: "64",
+                title: "בעיה רפואית רצינית / שילוב סעיפים",
+                category: "תומכי לחימה / תפקידי עורף",
+                badgeClass: "bg-blue-500/20 text-blue-400 border-blue-500/30",
+                description: "בעיה רפואית הפוסלת לחימה באופן מוחלט. מיועד לתפקידי תמיכת לחימה או תפקידים עורפיים.",
+                placements: "תומכי לחימה בחמ\"לים, מודיעין שטח, לוגיסטיקה, רפואה, מחשוב, משאבי אנוש וניהול ציוד.",
+                specialUnits: "יחידות טכנולוגיות, מודיעין עורפי, 8200, תקשוב.",
+                baseType: "בסיסים סגורים או פתוחים (יומיות)"
+            },
+            45: {
+                profile: "45",
+                title: "בעיה רפואית משמעותית",
+                category: "תפקידי עורף",
+                badgeClass: "bg-blue-500/20 text-blue-400 border-blue-500/30",
+                description: "בעיה כמו עקמת קשה או אסתמה פעילה. מיועד לשירות בתפקידים עורפיים בלבד.",
+                placements: "תפקידי מחשוב וסייבר, מודיעין עורפי, משאבי אנוש (שלישות/ת\"ש), מנהלה, רפואה עורפית ודוברות.",
+                specialUnits: "יחידות טכנולוגיות עורפיות ומפקדות.",
+                baseType: "בסיסים עורפיים / אפשרות ליומיות"
+            },
+            25: {
+                profile: "25",
+                title: "מתנדב / מתנדבת",
+                category: "מסלול התנדבות מותאם",
+                badgeClass: "bg-purple-500/20 text-purple-400 border-purple-500/30",
+                description: "פטור משירות חובה ששונה לבקשת המועמד למסלול התנדבות ייחודי בהתאמה אישית.",
+                placements: "שילוב במגוון רחב מאוד של תפקידים עורפיים, טכנולוגיים, מודיעיניים ואדמיניסטרטיביים.",
+                specialUnits: "בהתאם ליכולות האישיות והתאמת היחידה.",
+                baseType: "בסיסים פתוחים / עורפיים"
+            },
+            24: {
+                profile: "24",
+                title: "פרופיל זמני",
+                category: "בהמתנה / טיפול רפואי",
+                badgeClass: "bg-slate-500/20 text-slate-400 border-slate-500/30",
+                description: "איכשור רפואי זמני עקב פציעה, ניתוח או מחלה המצריכה החלמה ובדיקה חוזרת בהמשך.",
+                placements: "שיבוץ זמני או דחיית שירות עד לוועדה רפואית חוזרת וקביעת פרופיל קבוע.",
+                specialUnits: "-",
+                baseType: "לפי החלטת ועדה רפואית"
+            },
+            21: {
+                profile: "21",
+                title: "פטור קבוע משירות",
+                category: "פטור רפואי / נפשי",
+                badgeClass: "bg-gray-500/20 text-gray-400 border-gray-500/30",
+                description: "פטור מלא מגיוס לצה\"ל מטעמים רפואיים או בריאות הנפש. ניתן להגיש בקשה להתנדבות (פרופיל 25).",
+                placements: "פטור משירות (ניתן לבחור בשירות לאומי-אזרחי או התנדבות לצה\"ל).",
+                specialUnits: "-",
+                baseType: "-"
+            }
+        };
+
+        // Render Selector Buttons
+        const selectorContainer = document.getElementById('profileSelector');
+        const profilesKeys = [97, 82, 72, 64, 45, 25, 24, 21];
+
+        profilesKeys.forEach((profKey, index) => {
+            const btn = document.createElement('button');
+            btn.className = `px-5 py-3 rounded-xl font-bold text-lg transition-all border ${index === 0 ? 'bg-idf-gold text-idf-navy border-idf-gold shadow-lg shadow-idf-gold/20 scale-105' : 'glass-panel text-slate-300 hover:border-idf-gold/50'}`;
+            btn.innerHTML = `פרופיל ${profKey}`;
+            btn.onclick = () => selectProfile(profKey, btn);
+            selectorContainer.appendChild(btn);
+        });
+
+        // Initialize display with Profile 97
+        renderProfileCard(profilesData[97]);
+
+        function selectProfile(profKey, activeBtn) {
+            // Reset buttons styling
+            Array.from(selectorContainer.children).forEach(btn => {
+                btn.className = 'px-5 py-3 rounded-xl font-bold text-lg transition-all border glass-panel text-slate-300 hover:border-idf-gold/50';
+            });
+            // Highlight active button
+            activeBtn.className = 'px-5 py-3 rounded-xl font-bold text-lg transition-all border bg-idf-gold text-idf-navy border-idf-gold shadow-lg shadow-idf-gold/20 scale-105';
+
+            renderProfileCard(profilesData[profKey]);
+        }
+
+        function renderProfileCard(data) {
+            const container = document.getElementById('profileDetailCard');
+            container.innerHTML = `
+                <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6 mb-8 pb-6 border-b border-slate-700/60">
+                    <div>
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="text-3xl font-extrabold text-white">פרופיל ${data.profile}</span>
+                            <span class="px-3 py-1 rounded-full text-xs font-semibold border ${data.badgeClass}">${data.category}</span>
+                        </div>
+                        <h3 class="text-xl font-semibold text-idf-gold">${data.title}</h3>
+                    </div>
+                    <div class="glass-panel px-4 py-2 rounded-xl border border-slate-700 text-sm text-slate-300 flex items-center gap-2">
+                        <i class="fa-solid fa-location-dot text-idf-gold"></i>
+                        <span>אופי יחידות: <strong>${data.baseType}</strong></span>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="space-y-4">
+                        <h4 class="text-sm font-semibold text-slate-400 uppercase tracking-wider flex items-center gap-2">
+                            <i class="fa-solid fa-circle-info text-idf-gold"></i> משמעות רפואית ושירות
+                        </h4>
+                        <p class="text-slate-200 text-base leading-relaxed bg-slate-800/40 p-4 rounded-xl border border-slate-800">
+                            ${data.description}
+                        </p>
+                    </div>
+
+                    <div class="space-y-4">
+                        <h4 class="text-sm font-semibold text-slate-400 uppercase tracking-wider flex items-center gap-2">
+                            <i class="fa-solid fa-layer-group text-idf-gold"></i> אפשרויות שיבוץ ותפקידים
+                        </h4>
+                        <div class="bg-slate-800/40 p-4 rounded-xl border border-slate-800 space-y-3">
+                            <p class="text-slate-200 text-sm leading-relaxed">
+                                <strong class="text-white block mb-1">תפקידים בולטים:</strong>
+                                ${data.placements}
+                            </p>
+                            ${data.specialUnits !== "-" ? `
+                            <p class="text-slate-200 text-sm leading-relaxed pt-2 border-t border-slate-700/50">
+                                <strong class="text-idf-gold block mb-1">יחידות מיוחדות / מסלולים עילית:</strong>
+                                ${data.specialUnits}
+                            </p>` : ''}
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+    </script>
+</body>
+</html>
